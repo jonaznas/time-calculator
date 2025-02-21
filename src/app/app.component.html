@@ -1,3 +1,67 @@
-<h1 class="text-3xl font-bold underline">
-  Hey
-</h1>
+<div class="h-screen w-screen bg-base-200 overflow-y-auto">
+  <div class="flex gap-2 justify-center pt-32 mb-8">
+    <div class="rounded-xl border border-base-content/5 bg-base-100 relative shadow-lg">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Start</th>
+          <th>End</th>
+        </tr>
+        </thead>
+        <tbody>
+          @for (time of times; track time.id) {
+            <tr class="relative">
+              <th>
+                <input (change)="updateStartTime(time.id, $event)" type="time" class="input">
+              </th>
+              <td>
+                <input (change)="updateEndTime(time.id, $event)" type="time" class="input">
+              </td>
+              <td>
+                <button (click)="removeTime(time.id)" class="btn btn-soft btn-primary btn-xs btn-circle">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                       class="icon icon-tabler icons-tabler-outline icon-tabler-minus">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M5 12l14 0"/>
+                  </svg>
+                </button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+      <div class="border-t border-t-base-200 flex justify-end p-2">
+        <button (click)="addRow()" class="btn btn-xs rounded-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+               class="icon icon-tabler icons-tabler-outline icon-tabler-plus">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 5l0 14"/>
+            <path d="M5 12l14 0"/>
+          </svg>
+          Add row
+        </button>
+      </div>
+    </div>
+    <div class="stats bg-base-100 border border-base-300 rounded-xl h-fit shadow-lg">
+      <div class="stat">
+        <div class="stat-title">Total hours</div>
+        <div class="stat-value">{{ totalTime | number:'1.0-2' }}</div>
+        <div class="stat-actions">
+          <button (click)="copyFriendlyString()" class="btn btn-xs rounded-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 class="icon icon-tabler icons-tabler-outline icon-tabler-copy">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path
+                d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z"/>
+              <path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1"/>
+            </svg>
+            Copy
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
