@@ -1,12 +1,13 @@
 import { Component, OnInit } from "@angular/core";
 import { Time } from "src/app/time";
 import { DateTime } from "luxon";
-import { DecimalPipe } from "@angular/common";
+import { DecimalPipe, NgOptimizedImage } from "@angular/common";
 
 @Component({
   selector: "app-root",
   imports: [
-    DecimalPipe
+    DecimalPipe,
+    NgOptimizedImage
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.css"
