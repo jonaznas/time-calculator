@@ -15,6 +15,7 @@ import { DecimalPipe, NgOptimizedImage } from "@angular/common";
 export class AppComponent implements OnInit {
   times: Time[] = [];
   totalTime: number = 0;
+  timePretty: string = "0:00";
 
   ngOnInit() {
     this.times.push({id: this.getNewId()});
@@ -26,6 +27,7 @@ export class AppComponent implements OnInit {
     this.times[index].start = DateTime.fromISO(element.value);
     this.removeEmptyRows();
     this.updateTotalTime();
+    this.updatePrettyTime();
   }
 
   updateEndTime(id: number, event: Event) {
@@ -34,6 +36,7 @@ export class AppComponent implements OnInit {
     this.times[index].end = DateTime.fromISO(element.value);
     this.removeEmptyRows();
     this.updateTotalTime();
+    this.updatePrettyTime();
   }
 
   removeEmptyRows() {
@@ -81,5 +84,9 @@ export class AppComponent implements OnInit {
     navigator.clipboard.writeText(friendlyString).then(r => {
       console.log("Copied to clipboard: " + friendlyString);
     });
+  }
+
+  updatePrettyTime() {
+    this.timePretty = `${Math.floor(this.totalTime)}:${Math.round((this.totalTime % 1) * 60)}`;
   }
 }
