@@ -1,21 +1,21 @@
 <div class="h-screen w-screen bg-base-200 overflow-y-auto">
   <div class="flex justify-center">
-    <div class="grid gap-2 pt-32 mb-8 w-fit">
-      <div class="flex w-full gap-2">
-        <div class="stats bg-base-100 border border-base-300 rounded-xl h-fit shadow-lg w-full">
+    <div class="grid sm:gap-2 sm:pt-32 mb-8 max-w-md w-full">
+      <div class="flex w-full sm:gap-2">
+        <div class="stats bg-base-100 border border-base-300 sm:rounded-xl h-fit shadow-lg w-full">
           <div class="stat">
             <div class="stat-title">Total time</div>
             <div class="stat-value">{{ timePretty }}</div>
           </div>
         </div>
-        <div class="stats bg-base-100 border border-base-300 rounded-xl h-fit shadow-lg w-full">
+        <div class="stats bg-base-100 border border-base-300 sm:rounded-xl h-fit shadow-lg w-full">
           <div class="stat">
             <div class="stat-title">Total number</div>
             <div class="stat-value">{{ totalTime | number:'1.0-2' }}</div>
           </div>
         </div>
       </div>
-      <div class="rounded-xl border border-base-content/5 bg-base-100 relative shadow-lg">
+      <div class="sm:rounded-xl border border-base-content/5 bg-base-100 relative shadow-lg">
         <table class="table">
           <thead>
           <tr>
@@ -54,7 +54,8 @@
               <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
               <path
                 d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z"/>
-              <path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1"/>
+              <path
+                d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1"/>
             </svg>
             Copy
           </button>
